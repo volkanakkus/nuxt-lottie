@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <Lottie />
-  </div>
+  <Lottie1 />
+  <Lottie2 />
 </template>
-
-<script setup lang="ts"></script>
+<script setup></script>
