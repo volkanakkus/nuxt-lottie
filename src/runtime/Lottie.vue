@@ -31,9 +31,13 @@ const animationName = computed(() => {
     return null;
   }
 
-  const viteAnimations = import.meta.glob("/lottie/*.json", { eager: true });
-  const animationData = (viteAnimations[`/lottie/${props.name}.json`] as any)
-    ?.default;
+  const viteAnimations = import.meta.glob("/assets/lottie/*.json", {
+    eager: true,
+  });
+
+  const animationData = (
+    viteAnimations[`/assets/lottie/${props.name}.json`] as any
+  )?.default;
   return animationData ?? null;
 });
 
