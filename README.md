@@ -5,7 +5,7 @@
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-**Easily integrate Lottie animations into your Nuxt 3 project with the `<Lottie>` component.**  
+Easily integrate Lottie animations into your Nuxt project.  
 - Compatibility: ```Nuxt >= 3```
 
 [✨ &nbsp;Release Notes](/CHANGELOG.md)

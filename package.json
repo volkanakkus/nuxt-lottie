@@ -1,10 +1,29 @@
 {
   "name": "nuxt-lottie",
-  "version": "0.0.2",
-  "description": "This module will be developed in a short time period.",
+  "version": "1.0.0",
+  "description": "Easily integrate Lottie animations into your Nuxt project",
   "repository": "volkanakkus/nuxt-lottie",
   "license": "MIT",
   "type": "module",
+  "keywords": [
+    "lottie",
+    "lottie-files",
+    "lottie-web",
+    "lottie-nuxt",
+    "animation",
+    "nuxt",
+    "nuxt3",
+    "nuxt4",
+    "nuxt-3",
+    "nuxt-4",
+    "module",
+    "vue",
+    "vue3",
+    "nuxt-module",
+    "nuxt-component",
+    "typescript",
+    "front-end"
+  ],
   "exports": {
     ".": {
       "types": "./dist/types.d.ts",
