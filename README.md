@@ -11,11 +11,10 @@
 [✨ &nbsp;Release Notes](/CHANGELOG.md)
 
 ## Features
-- 🗂️ **Automatic Folder Creation**: Automatically creates an `assets/lottie` folder for your Lottie `.json` files.
-- 🚀 **Glob Imports**: Automatically imports all `.json` files within the `lottie` folder, supporting nested directories.
-- 🎨 **Nested Animations**: Use animations from nested folders with a simple path syntax (e.g., ```<Lottie name="folder/subfolder/animation" />```).
-- 🎁 **Vue3Lottie Wrapper**: Provides a wrapper around [vue3-lottie](https://www.npmjs.com/package/vue3-lottie) with additional features and simplified usage.
-- 🛠️ **Programmatic Control**: Exposes methods like `play()`, `pause()`, `stop()`, and more for controlling animations programmatically.
+- 🗂️ **Automatic Imports**: 
+- 🎨 **Nested Folder Support**:
+- 🛠️ **Programmatic Control**:
+- 💚 **Nuxt 4 Ready**:
 
 ## Quick Setup
 
@@ -52,21 +51,16 @@ export default defineNuxtConfig({
 
 ### 3. Verify Folder Structure
 
-After installation, ensure that the `assets/lottie` folder exists. If it doesn't, the module will automatically create it for you.
+After installation, ensure that the `assets/lottie` folder exists. If it doesn't, the module will automatically create it for you. You can change the folder path using the `lottieFolder` option in the `nuxt.config.ts` file.
 
 ```
 your-project/
 ├── assets/
 │   └── lottie/
-│       ├── animation1.json
-│       ├── nested/
-│       │   └── animation2.json
 │       └── README.md
 ├── nuxt.config.ts
 └── ...
 ```
-
-> **Note:** A `README.md` file is created inside the `lottie` folder to guide you on adding your `.json` animation files.
 
 ## Usage
 
@@ -96,19 +90,7 @@ Import and use the `<Lottie>` component in your Vue files.
 </template>
 ```
 
-### 3. Props
-
-The `<Lottie>` component accepts the following props:
-
-| Prop      | Type     | Default Value | Description                                                                                       |
-| --------- | -------- | ------------- | ------------------------------------------------------------------------------------------------- |
-| `name`    | String   | `null`        | **(Required)** The name of the animation file without the `.json` extension. Supports nested paths (e.g., `"folder/animation"`). |
-| `loop`    | Boolean  | `true`        | Whether the animation should loop.                                                               |
-| `autoplay`| Boolean  | `true`        | Whether the animation should start playing automatically.                                        |
-| `style`   | String   | `""`          | Inline styles to apply to the animation container.                                               |
-| ...$attrs | -        | -             | Any additional attributes are passed directly to the underlying `Vue3Lottie` component.          |
-
-### 4. Programmatic Control
+### 3. Programmatic Control
 
 You can control the animation using methods exposed by the `<Lottie>` component. Use `ref` to access these methods.
 
@@ -134,23 +116,13 @@ const pauseAnimation = () => {
 </script>
 ```
 
-### 5. Nested Animations
-
-To use animations from nested folders, specify the path using slashes.
-
-```vue
-<template>
-  <Lottie name="nested/folder/myAnimation" />
-</template>
-```
-
 ## Props and options
 
 More detailed explanations are provided in the [documentation](https://vue3-lottie.vercel.app).
 
 | Prop             | Type              | Default Value | Description                                                                                                        |
 | ---------------- | ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ 
-| `name`    | String   | `null`        |  The name of the animation file without the `.json` extension. Supports nested paths (e.g., `"folder/animation"`). ||
+| name    | String   | null        |  The name of the animation file without the `.json` extension. Supports nested paths (e.g., `"folder/animation"`). ||
 | animationData    | Object            | {}            | The lottie animation data provided as a JSON object                                                                |
 | animationLink    | String            | ''            | A URL link to the Lottie animation data (eg: `Lottie Animation URL` on lottiefiles.com)                            |
 | width            | Number or String  | "100%"        | Width of the lottie animation container (Numbers correspond to pixel values)                                       |
@@ -172,7 +144,7 @@ More detailed explanations are provided in the [documentation](https://vue3-lott
 
 ## Events
 
-A few events are emitted from the component. Look at the [Demos](#demos) for examples.
+A few events are emitted from the component.
 
 - onComplete
   - If your animation has a finite amount of loops you can use this event to know when the animation has completed.
@@ -187,7 +159,7 @@ A few events are emitted from the component. Look at the [Demos](#demos) for exa
 
 ## Methods
 
-You can control the animation with the following methods. These methods can be called by assigning a `ref` value to the `vue3-lottie` component. Look at the [Demos](#demos) for examples.
+You can control the animation with the following methods. These methods can be called by assigning a `ref` value to the `<Lottie>` component. 
 
 - play
   - Plays the animation
@@ -219,7 +191,7 @@ You can control the animation with the following methods. These methods can be c
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/nuxt-lottie.git
+git clone https://github.com/volkanakkus/nuxt-lottie.git
 cd nuxt-lottie
 
 # Install dependencies
