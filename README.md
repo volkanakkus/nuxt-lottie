@@ -1,3 +1,5 @@
+![nuxt-lottie-social-card](https://raw.githubusercontent.com/volkanakkus/nuxt-lottie/assets/cover.png)
+
 # Nuxt Lottie
 
 [![npm version][npm-version-src]][npm-version-href]
