@@ -1,10 +1,5 @@
 <template>
-  <Lottie
-    ref="lottieAnimation"
-    animation-link="https://assets2.lottiefiles.com/private_files/lf30_vcwnens3.json"
-    :height="200"
-    :width="200"
-  />
+  <Lottie ref="lottieAnimation" name="boxes" :height="200" :width="200" />
   <button @click="play">Play</button>
   <button @click="pause">Pause</button>
   <button @click="stop">Stop</button>

@@ -1,7 +1,6 @@
 export default defineNuxtConfig({
   modules: ["../src/module"],
-  lottie: {
-    // prefix: 'MY',
-  },
+
   devtools: { enabled: true },
+  compatibilityDate: "2025-01-09",
 });

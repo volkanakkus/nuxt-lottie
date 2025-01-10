@@ -4,6 +4,7 @@ import {
   addComponent,
   createResolver,
   useLogger,
+  addTemplate,
 } from "@nuxt/kit";
 import { join } from "path";
 
@@ -25,8 +26,6 @@ export default defineNuxtModule<ModuleOptions>({
     lottieFolder: "/assets/lottie",
   },
   async setup(options, nuxt) {
-    nuxt.options.runtimeConfig.public.lottieFolder = options.lottieFolder;
-
     const { resolve } = createResolver(import.meta.url);
 
     addComponent({
@@ -37,8 +36,10 @@ export default defineNuxtModule<ModuleOptions>({
 
     const logger = useLogger("nuxt-lottie");
 
-    const srcDir = nuxt.options.srcDir;
-    logger.info(`Current srcDir: ${srcDir}`);
+    let lottieFolder = `${options.lottieFolder}`;
+    if (lottieFolder.endsWith("/")) {
+      lottieFolder = lottieFolder.slice(0, -1);
+    }
 
     const lottiePath = `${nuxt.options.srcDir}${options.lottieFolder}`;
 
@@ -46,7 +47,6 @@ export default defineNuxtModule<ModuleOptions>({
       const stat = await fsp.stat(lottiePath);
       if (stat.isDirectory()) {
         logger.info(`You have Lottie folder which is nice`);
-        return;
       }
     } catch (err) {
       try {
@@ -70,16 +70,13 @@ export default defineNuxtModule<ModuleOptions>({
       }
     }
 
-    if (nuxt.options.dev) {
-      nuxt.hook("builder:watch", (filePath, event) => {
-        if (filePath.startsWith(join(lottiePath))) {
-          if (event === "update") {
-            logger.log(`${filePath} changed`);
-          } else if (event === "remove") {
-            logger.log(`${filePath} removed`);
-          }
-        }
-      });
-    }
+    addTemplate({
+      write: true,
+      filename: "lottie-animations.ts",
+      getContents: () => `
+        export const animations = import.meta.glob('${lottieFolder}/**/*.json', { eager: true });
+        export const folderPath = '${lottieFolder}';
+      `,
+    });
   },
 });

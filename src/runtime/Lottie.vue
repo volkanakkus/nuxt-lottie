@@ -14,6 +14,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { Vue3Lottie, type AnimationSegment } from "vue3-lottie";
+import { animations, folderPath } from "#build/lottie-animations";
 
 // Define the props
 const props = defineProps({
@@ -31,18 +32,13 @@ const animationName = computed(() => {
     return null;
   }
 
-  const viteAnimations = import.meta.glob("/assets/lottie/*.json", {
-    eager: true,
-  });
+  const animation = animations[`${folderPath}/${props.name}.json`]?.default;
+  return animation ?? null;
 
-  const animationData = (
-    viteAnimations[`/assets/lottie/${props.name}.json`] as any
-  )?.default;
-  return animationData ?? null;
+  return null;
 });
 
 //Methods
-
 const Vue3LottieSource = ref(null as null | typeof Vue3Lottie);
 const play = () => {
   return Vue3LottieSource.value?.play();
