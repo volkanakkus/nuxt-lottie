@@ -13,10 +13,10 @@ Easily integrate Lottie animations into your Nuxt project.
 [✨ &nbsp;Release Notes](/CHANGELOG.md)
 
 ## Features
-- 🗂️ **Automatic Imports**: 
-- 🎨 **Nested Folder Support**:
-- 🛠️ **Programmatic Control**:
-- 💚 **Nuxt 4 Ready**:
+- 🗂️ Automatic Imports
+- 🎨 Nested Folder Support
+- 🛠️ Programmatic Control
+- 💚 Nuxt 4 Ready
 
 ## Quick Setup
 
