@@ -67,9 +67,9 @@ your-project/
 ## Usage
 
 There are 3 ways to use <Lottie> component:
-- 1- Using `name` prop with automatic imports of Lottie JSON files
-- 2- Using `data` prop with provided Lottie JSON object
-- 3- Using `link` prop with Lottie JSON link from CDN or any other source
+- 1: Using `name` prop with automatic imports of Lottie JSON files
+- 2: Using `data` prop with provided Lottie JSON object
+- 3: Using `link` prop with Lottie JSON link from CDN or any other source
  
 Priority is given to the `name` prop, then `data` prop, and finally `link` prop.
 
@@ -117,7 +117,7 @@ import HelloJSON from './hello.json'
 
 ```vue
 <template>
-  <Lottie animationLink="https://assets10.lottiefiles.com/packages/lf20_soCRuE.json" autoplay  />
+  <Lottie link="https://assets10.lottiefiles.com/packages/lf20_soCRuE.json" autoplay  />
 </template>
 ```
 
