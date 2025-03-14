@@ -94,10 +94,10 @@ Import and use the `<Lottie>` component in your Vue files.
 ```vue
 <template>
   <!-- Using a top-level animation -->
-  <Lottie name="rocket" loop autoplay style="width:200px" />
+  <Lottie name="rocket" />
 
   <!-- Using a nested animation -->
-  <Lottie name="nested/spaceship" loop autoplay style="width:200px" />
+  <Lottie name="nested/spaceship" />
 </template>
 ```
 
@@ -105,7 +105,7 @@ Import and use the `<Lottie>` component in your Vue files.
 
 ```vue
 <template>
-  <Lottie :data="HelloJSON" autoplay  />
+  <Lottie :data="HelloJSON"  />
 </template>
 
 <script setup lang="ts">
@@ -117,7 +117,7 @@ import HelloJSON from './hello.json'
 
 ```vue
 <template>
-  <Lottie link="https://assets10.lottiefiles.com/packages/lf20_soCRuE.json" autoplay  />
+  <Lottie link="https://assets10.lottiefiles.com/packages/lf20_soCRuE.json"  />
 </template>
 ```
 
@@ -152,26 +152,26 @@ const pauseAnimation = () => {
 ## Props and options
 
 | Prop             | Type              | Default Value | Description                                                                                                        |
-| ---------------- | ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ 
-| name    | String   | null        |  The name of the animation file without the `.json` extension. Supports nested paths (e.g., `"folder/animation"`). ||
-| data    | Object            | {}            | The lottie animation data provided as a JSON object                                                                |
-| link    | String            | ''            | A URL link to the Lottie animation data (eg: `Lottie Animation URL` on lottiefiles.com)                            |
+| ---------------- | ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ |
+| name             | String   | null        |  The name of the animation file without the `.json` extension. Supports nested paths (e.g., `"folder/animation"`).            |
+| data             | Object            | {}            | The lottie animation data provided as a JSON object                                                                |
+| link             | String            | ''            | A URL link to the Lottie animation data (eg: `Lottie Animation URL` on lottiefiles.com)                            |
 | width            | Number or String  | "100%"        | Width of the lottie animation container (Numbers correspond to pixel values)                                       |
 | height           | Number or String  | "100%"        | Height of the lottie animation container (Numbers correspond to pixel values)                                      |
 | speed            | Number            | "1"           | Speed of the lottie animation                                                                                      |
 | direction        | String            | "forward"     | Animation play direction                                                                                           |
 | loop             | Number or Boolean | true          | The number of instances that the lottie animation should run (true is infinite)                                    |
-| auto-play         | Boolean           | true          | Start animation on component load                                                                                  |
+| auto-play        | Boolean           | true          | Start animation on component load                                                                                  |
 | delay            | Number            | 0             | Delay the animation play state by some milliseconds                                                                |
-| pause-animation   | Boolean           | false         | Prop to pass reactive variables so that you can control animation pause and play                                   |
-| pause-on-hover     | Boolean           | false         | Whether to pause the animation on hover                                                                            |
-| play-on-hover      | Boolean           | false         | Whether to play the animation when you hover                                                                       |
-| background-color  | String            | transparent   | Background color of the container                                                                                  |
-| no-margin         | Boolean           | false         | Prevent the lottie from auto centering in the container. This gives you better control on placement within your UI |
+| pause-animation  | Boolean           | false         | Prop to pass reactive variables so that you can control animation pause and play                                   |
+| pause-on-hover   | Boolean           | false         | Whether to pause the animation on hover                                                                            |
+| play-on-hover    | Boolean           | false         | Whether to play the animation when you hover                                                                       |
+| background-color | String            | transparent   | Background color of the container                                                                                  |
+| no-margin        | Boolean           | false         | Prevent the lottie from auto centering in the container. This gives you better control on placement within your UI |
 | scale            | Number            | 1             | Scale the animation (might cause blurriness)                                                                       |
-| assets-path       | String            | ""            | URL to the image asset you need to use in your Lottie animation                                                    |
+| assets-path      | String            | ""            | URL to the image asset you need to use in your Lottie animation                                                    |
 | renderer         | String            | "svg"         | Set the renderer                                                                                                   |
-| renderer-settings | Object            | {}            | Options for if you want to use an existing canvas to draw (can be ignored on most cases)                           |
+| renderer-settings| Object            | {}            | Options for if you want to use an existing canvas to draw (can be ignored on most cases)                           |
 
 ## Events
 
