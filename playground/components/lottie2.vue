@@ -1,7 +1,7 @@
 <template>
   <Lottie
     ref="lottieAnimation"
-    animation-link="https://assets2.lottiefiles.com/private_files/lf30_vcwnens3.json"
+    link="https://assets2.lottiefiles.com/private_files/lf30_vcwnens3.json"
     :height="200"
     :width="200"
   />

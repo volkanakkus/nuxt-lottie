@@ -1,5 +1,12 @@
 <template>
-  <Lottie ref="lottieAnimation" name="boxes" :height="200" :width="200" />
+  <Lottie
+    ref="lottieAnimation"
+    :data="HelloJSON"
+    name="boxes"
+    link="https://assets10.lottiefiles.com/packages/lf20_soCRuE.json"
+    :height="200"
+    :width="200"
+  />
   <button @click="play">Play</button>
   <button @click="pause">Pause</button>
   <button @click="stop">Stop</button>
@@ -9,6 +16,8 @@
 </template>
 <script setup>
 import { ref } from "vue";
+
+import HelloJSON from "./Hello.json";
 const lottieAnimation = ref(null);
 const direction = ref("forward");
 const play = () => {
