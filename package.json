@@ -1,6 +1,6 @@
 {
   "name": "nuxt-lottie",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easily integrate Lottie animations into your Nuxt project",
   "repository": "volkanakkus/nuxt-lottie",
   "license": "MIT",
@@ -45,7 +45,7 @@
     "lint": "eslint .",
     "test": "vitest run",
     "flush": "rm -rf .nuxt && rm -rf dist && npx nuxi cleanup && nuxt build && yarn dev:prepare",
-    "flush:all" : "rm -rf node_modules && rm -rf playground/node_modules && yarn install && yarn flush && yarn dev",
+    "flush:all": "rm -rf node_modules && rm -rf playground/node_modules && yarn install && yarn flush && yarn dev",
     "test:watch": "vitest watch"
   },
   "dependencies": {
