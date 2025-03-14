@@ -66,7 +66,16 @@ your-project/
 
 ## Usage
 
-### 1. Add Lottie Animations
+There are 3 ways to use <Lottie> component:
+- 1- Using `name` prop with automatic imports of Lottie JSON files
+- 2- Using `data` prop with provided Lottie JSON object
+- 3- Using `link` prop with Lottie JSON link from CDN or any other source
+ 
+Priority is given to the `name` prop, then `data` prop, and finally `link` prop.
+
+## 1. Using `name` prop with automatic imports of JSON files
+
+### 1.1 Add Lottie Animations
 
 Place your `.json` animation files inside the `assets/lottie` folder. You can organize them into nested folders as needed.
 
@@ -78,7 +87,7 @@ assets/
         └── spaceship.json
 ```
 
-### 2. Use the `<Lottie>` Component
+### 1.2 Use the `<Lottie>` Component
 
 Import and use the `<Lottie>` component in your Vue files.
 
@@ -92,7 +101,29 @@ Import and use the `<Lottie>` component in your Vue files.
 </template>
 ```
 
-### 3. Programmatic Control
+## 2. Using `data` prop with JSON object
+
+```vue
+<template>
+  <Lottie :data="HelloJSON" autoplay  />
+</template>
+
+<script setup lang="ts">
+import HelloJSON from './hello.json'
+</script>
+```
+
+## 3. Using `link` prop with link to JSON file
+
+```vue
+<template>
+  <Lottie animationLink="https://assets10.lottiefiles.com/packages/lf20_soCRuE.json" autoplay  />
+</template>
+```
+
+
+
+## Programmatic Control
 
 You can control the animation using methods exposed by the `<Lottie>` component. Use `ref` to access these methods.
 
@@ -120,29 +151,27 @@ const pauseAnimation = () => {
 
 ## Props and options
 
-More detailed explanations are provided in the [documentation](https://vue3-lottie.vercel.app).
-
 | Prop             | Type              | Default Value | Description                                                                                                        |
 | ---------------- | ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ 
 | name    | String   | null        |  The name of the animation file without the `.json` extension. Supports nested paths (e.g., `"folder/animation"`). ||
-| animationData    | Object            | {}            | The lottie animation data provided as a JSON object                                                                |
-| animationLink    | String            | ''            | A URL link to the Lottie animation data (eg: `Lottie Animation URL` on lottiefiles.com)                            |
+| data    | Object            | {}            | The lottie animation data provided as a JSON object                                                                |
+| link    | String            | ''            | A URL link to the Lottie animation data (eg: `Lottie Animation URL` on lottiefiles.com)                            |
 | width            | Number or String  | "100%"        | Width of the lottie animation container (Numbers correspond to pixel values)                                       |
 | height           | Number or String  | "100%"        | Height of the lottie animation container (Numbers correspond to pixel values)                                      |
 | speed            | Number            | "1"           | Speed of the lottie animation                                                                                      |
 | direction        | String            | "forward"     | Animation play direction                                                                                           |
 | loop             | Number or Boolean | true          | The number of instances that the lottie animation should run (true is infinite)                                    |
-| autoPlay         | Boolean           | true          | Start animation on component load                                                                                  |
+| auto-play         | Boolean           | true          | Start animation on component load                                                                                  |
 | delay            | Number            | 0             | Delay the animation play state by some milliseconds                                                                |
-| pauseAnimation   | Boolean           | false         | Prop to pass reactive variables so that you can control animation pause and play                                   |
-| pauseOnHover     | Boolean           | false         | Whether to pause the animation on hover                                                                            |
-| playOnHover      | Boolean           | false         | Whether to play the animation when you hover                                                                       |
-| backgroundColor  | String            | transparent   | Background color of the container                                                                                  |
-| noMargin         | Boolean           | false         | Prevent the lottie from auto centering in the container. This gives you better control on placement within your UI |
+| pause-animation   | Boolean           | false         | Prop to pass reactive variables so that you can control animation pause and play                                   |
+| pause-on-hover     | Boolean           | false         | Whether to pause the animation on hover                                                                            |
+| play-on-hover      | Boolean           | false         | Whether to play the animation when you hover                                                                       |
+| background-color  | String            | transparent   | Background color of the container                                                                                  |
+| no-margin         | Boolean           | false         | Prevent the lottie from auto centering in the container. This gives you better control on placement within your UI |
 | scale            | Number            | 1             | Scale the animation (might cause blurriness)                                                                       |
-| assetsPath       | String            | ""            | URL to the image asset you need to use in your Lottie animation                                                    |
+| assets-path       | String            | ""            | URL to the image asset you need to use in your Lottie animation                                                    |
 | renderer         | String            | "svg"         | Set the renderer                                                                                                   |
-| rendererSettings | Object            | {}            | Options for if you want to use an existing canvas to draw (can be ignored on most cases)                           |
+| renderer-settings | Object            | {}            | Options for if you want to use an existing canvas to draw (can be ignored on most cases)                           |
 
 ## Events
 
