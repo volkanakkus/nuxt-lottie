@@ -27,15 +27,15 @@ const props = defineProps({
 
 const isVite = import.meta.env !== undefined;
 
+const allAnimations = animations as Record<string, { default: any }>;
+
 const animationName = computed(() => {
   if (!props.name || !isVite) {
     return null;
   }
 
-  const animation = animations[`${folderPath}/${props.name}.json`]?.default;
+  const animation = allAnimations[`${folderPath}/${props.name}.json`]?.default;
   return animation ?? null;
-
-  return null;
 });
 
 //Methods
