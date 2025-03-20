@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.0.3
+
+### 🩹 Fixes
+
+- Resolve es6 issue and drop some deps ([8a12f3e](https://github.com/volkanakkus/nuxt-lottie/commit/8a12f3e))
+
+[compare changes](https://github.com/volkanakkus/nuxt-lottie/compare/v1.0.1...v1.0.3)
+
+### ❤️ Contributors
+
+- [volkanakkus](https://github.com/volkanakkus)
+  
+### ✨ Thanks To:
+
+- [@OleksiiKDev: #3](https://github.com/volkanakkus/nuxt-lottie/issues/3) 
+
 ## v1.0.2
 
 ### 🚀 Enhancements
@@ -18,7 +34,7 @@
 
 ### ❤️ Contributors
 
-- Volkan Akkuş <volkanakks.dev@gmail.com>
+- [volkanakkus](https://github.com/volkanakkus)
 
 ## v1.0.1
 
@@ -40,7 +56,7 @@
 
 ### ❤️ Contributors
 
-- Volkan Akkuş <volkanakks.dev@gmail.com>
+- [volkanakkus](https://github.com/volkanakkus)
   
 ### ✨ Thanks To:
 
@@ -62,5 +78,5 @@
 
 ### ❤️ Contributors
 
-- [Volkan Akkuş](https://github.com/volkanakkus) 
+- [volkanakkus](https://github.com/volkanakkus)
 
