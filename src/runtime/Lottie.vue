@@ -118,7 +118,7 @@ const lottieAnimationContainer = ref<HTMLDivElement>();
 
 let animationData: any;
 let lottieAnimation: AnimationItem | null = null;
-let direction: AnimationDirection = 1;
+let lottieDirection: AnimationDirection = 1;
 
 const isVite = (import.meta as any).env !== undefined;
 
@@ -271,8 +271,8 @@ const loadLottie = () => {
   lottieAnimation.addEventListener("loopComplete", () => {
     if (props.direction === "alternate") {
       lottieAnimation?.stop();
-      direction = direction === -1 ? 1 : -1; //invert direction
-      lottieAnimation?.setDirection(direction);
+      lottieDirection = lottieDirection === -1 ? 1 : -1; //invert direction
+      lottieAnimation?.setDirection(lottieDirection);
       lottieAnimation?.play();
     }
     emits("onLoopComplete");
