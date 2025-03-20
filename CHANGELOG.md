@@ -1,5 +1,25 @@
 # Changelog
 
+## v1.0.2
+
+### 🚀 Enhancements
+
+- Drop dependency support and bump nuxt deps ([7d9cf08](https://github.com/volkanakkus/nuxt-lottie/commit/7d9cf08))
+
+### 📖 Documentation
+
+- Correct props in README.md ([0f10307](https://github.com/volkanakkus/nuxt-lottie/commit/0f10307))
+
+### 🏡 Chore
+
+- Add new eslint config ([9297d10](https://github.com/volkanakkus/nuxt-lottie/commit/9297d10))
+
+[compare changes](https://github.com/volkanakkus/nuxt-lottie/compare/v1.0.1...v1.1.0)
+
+### ❤️ Contributors
+
+- Volkan Akkuş <volkanakks.dev@gmail.com>
+
 ## v1.0.1
 
 ### 🩹 Fixes
