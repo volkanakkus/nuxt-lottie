@@ -78,5 +78,9 @@ export default defineNuxtModule<ModuleOptions>({
         export const folderPath = '${lottieFolder}';
       `,
     });
+
+    nuxt.hook("prepare:types", ({ references }) => {
+      references.push({ path: resolve("./runtime/types/Lottie.d.ts") });
+    });
   },
 });

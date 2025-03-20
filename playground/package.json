@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "my-module-playground",
+  "name": "lottie-playground",
   "type": "module",
   "scripts": {
     "dev": "nuxi dev",
@@ -8,6 +8,6 @@
     "generate": "nuxi generate"
   },
   "dependencies": {
-    "nuxt": "latest"
+    "nuxt": "^3.16.1"
   }
 }

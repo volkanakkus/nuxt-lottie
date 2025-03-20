@@ -41,7 +41,8 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-    "release": "npm run lint && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "release": "npm run lint && npm run prepack && changelogen --release",
+    "release:online": "npm run lint && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
     "test": "vitest run",
     "flush": "rm -rf .nuxt && rm -rf dist && npx nuxi cleanup && nuxt build && yarn dev:prepare",
@@ -49,22 +50,23 @@
     "test:watch": "vitest watch"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.15.1",
-    "vue3-lottie": "*"
+    "@nuxt/kit": "^3.16.1",
+    "lottie-web": "^5.12.2"
   },
   "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@nuxt/eslint-config": "^0.2.0",
-    "@nuxt/module-builder": "^0.5.5",
-    "@nuxt/schema": "^3.15.1",
-    "@nuxt/test-utils": "^3.15.1",
-    "@types/node": "^20.11.22",
-    "changelogen": "^0.5.5",
-    "eslint": "^8.57.0",
-    "nuxt": "^3.15.1",
-    "vitest": "^1.3.1"
-  },
-  "resolutions": {
-    "string-width": "4.2.3"
+    "@nuxt/devtools": "^2.3.0",
+    "@nuxt/eslint": "1.2.0",
+    "@nuxt/eslint-config": "^1.2.0",
+    "@nuxt/module-builder": "^0.8.4",
+    "@nuxt/schema": "^3.16.1",
+    "@nuxt/test-utils": "^3.17.2",
+    "@types/node": "latest",
+    "changelogen": "^0.6.1",
+    "eslint": "^9.22.0",
+    "nuxi": "^3.23.1",
+    "nuxt": "^3.16.1",
+    "typescript": "~5.8.2",
+    "vitest": "^3.0.9",
+    "vue-tsc": "^2.2.8"
   }
 }

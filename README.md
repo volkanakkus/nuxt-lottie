@@ -161,7 +161,7 @@ const pauseAnimation = () => {
 | speed            | Number            | "1"           | Speed of the lottie animation                                                                                      |
 | direction        | String            | "forward"     | Animation play direction                                                                                           |
 | loop             | Number or Boolean | true          | The number of instances that the lottie animation should run (true is infinite)                                    |
-| auto-play        | Boolean           | true          | Start animation on component load                                                                                  |
+| autoplay        | Boolean           | true          | Start animation on component load                                                                                  |
 | delay            | Number            | 0             | Delay the animation play state by some milliseconds                                                                |
 | pause-animation  | Boolean           | false         | Prop to pass reactive variables so that you can control animation pause and play                                   |
 | pause-on-hover   | Boolean           | false         | Whether to pause the animation on hover                                                                            |
@@ -215,7 +215,7 @@ You can control the animation with the following methods. These methods can be c
 - setSubFrame(subFrame)
   - You can call this method to set the subframe value.
 - updateDocumentData(documentData, index)
-  - This method updates text on text layers. Refer to the [official docs](https://github.com/airbnb/lottie-web/wiki/TextLayer.updateDocumentData) for how to use this method.
+  - This method updates text on text layers.
 - 
 
 ## Development
@@ -256,8 +256,4 @@ npm run dev:docs
 [nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js
 [nuxt-href]: https://nuxt.com
 
-Thanks to **[@megasanjay](https://github.com/megasanjay)** for  [vue3-lottie](https://www.npmjs.com/package/vue3-lottie). This module is a wrapper around it, enhancing it with automatic asset management and simplified usage within Nuxt 3 projects.
-
-Every download of this module will also support the original creator, as it is a dependency of this module. 🙏
-
-This software is licensed under the [MIT License](./LICENSE) | @volkanakkus 💚
+This software is licensed under the [MIT License](./LICENSE) | @volkanakkus | Special thanks to [@megasanjay](https://github.com/megasanjay) 💚
