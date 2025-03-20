@@ -2,6 +2,7 @@ export type {
   AnimationDirection,
   AnimationItem,
   AnimationSegment,
+  LottiePlayer,
 } from "lottie-web";
 
 export interface LottieProps {

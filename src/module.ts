@@ -32,6 +32,7 @@ export default defineNuxtModule<ModuleOptions>({
       name: `${options.componentName}`,
       global: true,
       filePath: resolve("./runtime/Lottie.vue"),
+      mode: "client",
     });
 
     const logger = useLogger("nuxt-lottie");

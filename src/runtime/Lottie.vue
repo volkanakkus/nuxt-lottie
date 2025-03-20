@@ -5,7 +5,7 @@
     :style="getCurrentStyle"
     @mouseenter="hoverStarted"
     @mouseleave="hoverEnded"
-  ></div>
+  />
 </template>
 
 <script setup lang="ts">
@@ -13,16 +13,15 @@ import { ref, computed, watch, watchEffect } from "vue";
 import { animations, folderPath } from "#build/lottie-animations";
 
 import type { PropType } from "vue";
-import Lottie from "lottie-web";
-import isEqual from "fast-deep-equal/es6";
-import { klona as cloneDeep } from "klona/json";
+
+import Lottie from "lottie-web/build/player/esm/lottie.min.js";
 
 import type {
   AnimationDirection,
   AnimationItem,
   AnimationSegment,
   LottieProps,
-} from "./types/Lottie";
+} from "./Lottie";
 
 // Define the props
 const props = defineProps({
@@ -113,6 +112,14 @@ const emits = defineEmits([
   "onSegmentStart",
   "onAnimationLoaded",
 ]);
+
+const isEqual = (a: any, b: any) => {
+  return JSON.stringify(a) === JSON.stringify(b);
+};
+
+const cloneDeep = (a: any) => {
+  return JSON.parse(JSON.stringify(a));
+};
 
 const lottieAnimationContainer = ref<HTMLDivElement>();
 
