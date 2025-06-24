@@ -21,19 +21,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
+          cache: 'yarn'
       
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
       
       - name: Run tests
-        run: npm run test
+        run: yarn test
       
       - name: Run linting
-        run: npm run lint
+        run: yarn lint
       
       - name: Build Nuxt module
-        run: nuxt-module-build build
+        run: yarn nuxt-module-build build
       
       - name: Verify build output
         run: |
@@ -46,7 +46,8 @@ jobs:
       
       - name: Create package tarball
         run: |
-          npm pack
+          yarn pack
+          # Find the generated tarball (yarn pack creates different filename format)
           TARBALL=$(ls *.tgz)
           echo "Created package: $TARBALL"
           
