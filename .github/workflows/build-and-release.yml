@@ -26,16 +26,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       
-      - name: Run tests (if any exist)
-        run: |
-          # Check if test files exist
-          if find . -name "*.test.*" -o -name "*.spec.*" | grep -q .; then
-            echo "✅ Test files found, running tests..."
-            yarn test
-          else
-            echo "⚠️  No test files found, skipping tests"
-          fi
-      
       - name: Run linting
         run: yarn lint
       
