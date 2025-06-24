@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       
+      - name: Prepare Nuxt module
+        run: yarn dev:prepare
+      
       - name: Build Nuxt module
         run: yarn nuxt-module-build build
       
