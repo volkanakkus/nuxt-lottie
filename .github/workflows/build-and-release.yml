@@ -1,0 +1,64 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+      
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      
+      - name: Prepare Nuxt module
+        run: yarn dev:prepare
+      
+      - name: Build Nuxt module
+        run: yarn nuxt-module-build build
+      
+      - name: Verify build output
+        run: |
+          echo "=== Checking dist folder ==="
+          ls -la dist/
+          echo "=== Verifying required files exist ==="
+          test -f dist/module.cjs && echo "✅ module.cjs exists" || echo "❌ module.cjs missing"
+          test -f dist/module.mjs && echo "✅ module.mjs exists" || echo "❌ module.mjs missing" 
+          test -f dist/types.d.ts && echo "✅ types.d.ts exists" || echo "❌ types.d.ts missing"
+      
+      - name: Create package tarball
+        run: |
+          yarn pack
+          TARBALL=$(ls *.tgz)
+          echo "Created package: $TARBALL"
+          
+          VERSION=${GITHUB_REF#refs/tags/}
+          mv "$TARBALL" "nuxt-lottie-${VERSION}.tgz"
+          echo "Renamed to: nuxt-lottie-${VERSION}.tgz"
+      
+      - name: Create Release
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          gh release create "${VERSION}" "nuxt-lottie-${VERSION}.tgz" \
+            --title "Release ${VERSION}" \
+            --notes "## 🚀 Installation
+          \`\`\`bash
+          bun add https://github.com/${{ github.repository }}/releases/download/${VERSION}/nuxt-lottie-${VERSION}.tgz
+          \`\`\`"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
