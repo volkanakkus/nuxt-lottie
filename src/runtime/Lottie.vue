@@ -21,7 +21,7 @@ import type {
   AnimationItem,
   AnimationSegment,
   LottieProps,
-} from "./Lottie";
+} from "../types";
 
 // Define the props
 const props = defineProps({
