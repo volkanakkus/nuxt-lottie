@@ -11,6 +11,8 @@ import { join } from "path";
 export interface ModuleOptions {
   componentName?: string;
   lottieFolder?: string;
+  autoFolderCreation?: boolean;
+  enableLogs?: boolean;
 }
 
 export type {
@@ -33,6 +35,8 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     componentName: "Lottie",
     lottieFolder: "/assets/lottie",
+    autoFolderCreation: true,
+    enableLogs: true,
   },
   async setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url);
@@ -46,6 +50,20 @@ export default defineNuxtModule<ModuleOptions>({
 
     const logger = useLogger("nuxt-lottie");
 
+    const isSSR = nuxt.options.ssr !== false;
+    const shouldCreateFolder = options.autoFolderCreation;
+    const enableLogs = options.enableLogs;
+
+    if (enableLogs) {
+      if (!shouldCreateFolder) {
+        logger.info("Lottie: Auto folder detection & creation is disabled.");
+      } else if (!isSSR) {
+        logger.info(
+          "Lottie: Client-only mode detected. Skipping automatic detection & creation."
+        );
+      }
+    }
+
     let lottieFolder = `${options.lottieFolder}`;
     if (lottieFolder.endsWith("/")) {
       lottieFolder = lottieFolder.slice(0, -1);
@@ -53,30 +71,44 @@ export default defineNuxtModule<ModuleOptions>({
 
     const lottiePath = `${nuxt.options.srcDir}${options.lottieFolder}`;
 
-    try {
-      const stat = await fsp.stat(lottiePath);
-      if (stat.isDirectory()) {
-        logger.info(`You have Lottie folder which is nice`);
-      }
-    } catch (err) {
+    // Only attempt folder creation if autoFolderCreation is enabled and we're in SSR mode
+    if (shouldCreateFolder && isSSR) {
       try {
-        await fsp.mkdir(lottiePath, { recursive: true });
-        logger.info(`Lottie folder created: ${lottiePath}`);
-      } catch (mkdirError) {
-        logger.error(`Failed to create folder at ${lottiePath}: ${mkdirError}`);
-        return;
-      }
+        const stat = await fsp.stat(lottiePath);
+        if (stat.isDirectory()) {
+          if (enableLogs) {
+            logger.ready(
+              `You have a Lottie folder which is nice: ${lottiePath}`
+            );
+          }
+        }
+      } catch (err) {
+        try {
+          await fsp.mkdir(lottiePath, { recursive: true });
+          logger.ready(`Lottie folder created: ${lottiePath}`);
+        } catch (mkdirError) {
+          logger.error(
+            `Failed to create folder at ${lottiePath}: ${mkdirError}`
+          );
+          logger.info(
+            "You can disable auto folder creation by setting 'autoFolderCreation: false' in your module options."
+          );
+          return;
+        }
 
-      try {
-        const readmePath = join(lottiePath, "README.md");
-        await fsp.writeFile(
-          readmePath,
-          "This directory is generated for Lottie files"
-        );
-      } catch (writeError) {
-        logger.error(
-          `Failed to write README.md at ${lottiePath}: ${writeError}`
-        );
+        try {
+          const readmePath = join(lottiePath, "README.md");
+          await fsp.writeFile(
+            readmePath,
+            "This directory is generated for Lottie files"
+          );
+        } catch (writeError) {
+          if (enableLogs) {
+            logger.error(
+              `Failed to write README.md at ${lottiePath}: ${writeError}`
+            );
+          }
+        }
       }
     }
 
@@ -86,6 +118,7 @@ export default defineNuxtModule<ModuleOptions>({
       getContents: () => `
         export const animations = import.meta.glob('${lottieFolder}/**/*.json', { eager: true });
         export const folderPath = '${lottieFolder}';
+        export const autoFolderCreation = ${shouldCreateFolder};
       `,
     });
   },

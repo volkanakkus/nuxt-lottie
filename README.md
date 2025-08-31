@@ -52,7 +52,9 @@ export default defineNuxtConfig({
   ],
   lottie: {
     componentName: 'Lottie', // Optional: Customize the component name
-    lottieFolder: '/assets/lottie' // Optional: Customize the Lottie folder path
+    lottieFolder: '/assets/lottie', // Optional: Customize the Lottie folder path
+    autoFolderCreation: true, // Optional: Auto create lottie folder (default: true)
+    enableLogs: true // Optional: Enable console logs from module (default: true)
   }
 })
 ```
@@ -60,6 +62,8 @@ export default defineNuxtConfig({
 ### 3. Verify Folder Structure
 
 After installation, ensure that the `assets/lottie` folder exists. If it doesn't, the module will automatically create it for you. You can change the folder path using the `lottieFolder` option in the `nuxt.config.ts` file.
+
+**Note:** If you're not going to use auto imports or prefer to manage folders manually, you can disable automatic folder creation by setting `autoFolderCreation: false` in your module options.
 
 ```
 your-project/
@@ -158,7 +162,18 @@ const pauseAnimation = () => {
 </script>
 ```
 
-## Props and options
+## Module Options
+
+You can configure the module behavior in your `nuxt.config.ts` file:
+
+| Option             | Type    | Default Value     | Description                                                                                                                    |
+| ------------------ | ------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| componentName      | String  | "Lottie"         | Customize the component name (e.g., set to "LottieAnimation" to use `<LottieAnimation>` instead of `<Lottie>`)               |
+| lottieFolder       | String  | "/assets/lottie" | Customize the Lottie folder path where animations are stored                                                                   |
+| autoFolderCreation | Boolean | true             | Automatically create the lottie folder if it doesn't exist. You can disable for client-only apps or manual folder management          |
+| enableLogs         | Boolean | true             | Enable terminal logs from the module during development. Disable if you like silence.                                       |
+
+## `<Lottie>` Props: 
 
 | Prop             | Type              | Default Value | Description                                                                                                        |
 | ---------------- | ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -225,7 +240,7 @@ You can control the animation with the following methods. These methods can be c
   - You can call this method to set the subframe value.
 - updateDocumentData(documentData, index)
   - This method updates text on text layers.
-- 
+  
 
 ## Development
 
