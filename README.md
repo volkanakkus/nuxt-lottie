@@ -7,7 +7,7 @@
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-Easily integrate Lottie animations into your Nuxt project.  
+Nuxt Lottie - Easily integrate Lottie animations into your Nuxt project.  
 - Compatibility: ```Nuxt >= 3```
 
 [✨ &nbsp;Release Notes](/CHANGELOG.md)
@@ -20,9 +20,17 @@ Easily integrate Lottie animations into your Nuxt project.
 
 ## Quick Setup
 
-### 1. Install `nuxt-lottie`
+Since this module is listed in the [Nuxt Modules](https://nuxt.com/modules/lottie) directory, you can easily add it to your project using the following command:
 
-Add `nuxt-lottie` to your project using your preferred package manager.
+```bash
+npx nuxi module add lottie
+```
+
+That's it ✨ Now you can use the `<Lottie>` component in your Vue files. That prompt will automatically install the module and add it to your `nuxt.config.ts` file.
+
+#### Manual Installation
+
+If you prefer manual installation, you can add `nuxt-lottie` to your project using your preferred package manager.
 
 ```bash
 # Using yarn
@@ -35,9 +43,7 @@ npm install nuxt-lottie
 pnpm add nuxt-lottie
 ```
 
-### 2. Add `nuxt-lottie` to `nuxt.config.ts`
-
-Add the module to the `modules` section of your `nuxt.config.ts` file.
+Then add the module to the `modules` section of your `nuxt.config.ts` file.
 
 ```js
 export default defineNuxtConfig({
@@ -127,6 +133,8 @@ import HelloJSON from './hello.json'
 
 You can control the animation using methods exposed by the `<Lottie>` component. Use `ref` to access these methods.
 
+Additionally, you can import the type of the Lottie component for better TypeScript support.
+
 ```vue
 <template>
   <Lottie ref="awesomeLottie" name="awesome" />
@@ -136,8 +144,9 @@ You can control the animation using methods exposed by the `<Lottie>` component.
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import type { Lottie } from 'nuxt-lottie'
 
-const awesomeLottie = ref(null)
+const awesomeLottie = ref<Lottie | null>(null)
 
 const playAnimation = () => {
   awesomeLottie.value?.play()

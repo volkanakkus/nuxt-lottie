@@ -14,40 +14,43 @@
   <button @click="getFrameCount"># of frames</button>
   <button @click="getTimeCount"># of seconds</button>
 </template>
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
-
+import type { Lottie } from "nuxt-lottie";
 import HelloJSON from "./Hello.json";
-const lottieAnimation = ref(null);
+
+const lottieAnimation = ref<Lottie | null>(null);
 const direction = ref("forward");
 const play = () => {
-  lottieAnimation.value.play();
+  lottieAnimation.value?.play();
 };
 const pause = () => {
-  lottieAnimation.value.pause();
+  lottieAnimation.value?.pause();
 };
 const stop = () => {
-  lottieAnimation.value.stop();
+  lottieAnimation.value?.stop();
 };
 const toggleDirection = () => {
   if (direction.value === "forward") {
     pause();
-    lottieAnimation.value.setDirection("reverse");
+    lottieAnimation.value?.setDirection("reverse");
     play();
     direction.value = "reverse";
   } else {
     pause();
-    lottieAnimation.value.setDirection("forward");
+    lottieAnimation.value?.setDirection("forward");
     play();
     direction.value = "forward";
   }
 };
 const getFrameCount = () => {
-  alert(`This animation has ${lottieAnimation.value.getDuration(true)} frames`);
+  alert(
+    `This animation has ${lottieAnimation.value?.getDuration(true)} frames`
+  );
 };
 const getTimeCount = () => {
   alert(
-    `This animation takes ${lottieAnimation.value.getDuration(false)} seconds`
+    `This animation takes ${lottieAnimation.value?.getDuration(false)} seconds`
   );
 };
 </script>

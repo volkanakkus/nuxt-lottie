@@ -13,6 +13,15 @@ export interface ModuleOptions {
   lottieFolder?: string;
 }
 
+export type {
+  Lottie,
+  LottieProps,
+  AnimationItem,
+  AnimationDirection,
+  AnimationSegment,
+  LottiePlayer,
+} from "./types";
+
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: "nuxt-lottie",
@@ -78,10 +87,6 @@ export default defineNuxtModule<ModuleOptions>({
         export const animations = import.meta.glob('${lottieFolder}/**/*.json', { eager: true });
         export const folderPath = '${lottieFolder}';
       `,
-    });
-
-    nuxt.hook("prepare:types", ({ references }) => {
-      references.push({ path: resolve("./runtime/types/Lottie.d.ts") });
     });
   },
 });
