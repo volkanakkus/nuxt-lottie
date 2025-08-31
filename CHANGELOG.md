@@ -1,5 +1,23 @@
 # Changelog
 
+## v1.0.4
+
+### 🚀 Enhancements
+
+- Expose types with public api ([#6](https://github.com/volkanakkus/nuxt-lottie/pull/6))
+- Introduce `autoFolderCreation` and `enableLogs` options ([#7](https://github.com/volkanakkus/nuxt-lottie/pull/7))
+
+### 📖 Documentation
+
+- Add new typescript export to README.md ([ee895e6](https://github.com/volkanakkus/nuxt-lottie/commit/ee895e6))
+- Add sponsor badge ([0f1980a](https://github.com/volkanakkus/nuxt-lottie/commit/0f1980a))
+
+[compare changes](https://github.com/volkanakkus/nuxt-lottie/compare/v1.0.3...v1.0.4)
+
+### ❤️ Contributors
+
+- [volkanakkus](https://github.com/volkanakkus)
+
 ## v1.0.3
 
 ### 🩹 Fixes
