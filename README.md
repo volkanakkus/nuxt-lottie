@@ -26,11 +26,11 @@ Since this module is listed in the [Nuxt Modules](https://nuxt.com/modules/lotti
 npx nuxi module add lottie
 ```
 
-That will automatically install the module and add it to your `nuxt.config.ts` file.
+That's it ✨ Now you can use the `<Lottie>` component in your Vue files. That prompt will automatically install the module and add it to your `nuxt.config.ts` file.
 
 #### Manual Installation
 
-Add `nuxt-lottie` to your project using your preferred package manager.
+If you prefer manual installation, you can add `nuxt-lottie` to your project using your preferred package manager.
 
 ```bash
 # Using yarn
