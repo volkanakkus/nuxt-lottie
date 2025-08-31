@@ -10,7 +10,11 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, watchEffect } from "vue";
-import { animations, folderPath } from "#build/lottie-animations";
+import {
+  animations,
+  folderPath,
+  autoFolderCreation,
+} from "#build/lottie-animations";
 
 import type { PropType } from "vue";
 
@@ -132,44 +136,71 @@ const isVite = (import.meta as any).env !== undefined;
 const allAnimations = animations as Record<string, { default: any }>;
 
 watchEffect(async () => {
-  // track and ensure that `lottieAnimationContainer` is mounted
-  if (!lottieAnimationContainer.value) return;
-  if (!isVite) {
-    throw new Error("You must use Vite to load animations by name");
-
-    return;
-  }
-
-  if (props.name) {
-    const selectedAnimation =
-      allAnimations[`${folderPath}/${props.name}.json`]?.default;
-
-    if (selectedAnimation) {
-      animationData = selectedAnimation;
-    } else {
-      throw new Error("There is no animation with the name provided");
-    }
-  } else if (isEqual(props.data, {}) === false) {
-    // clone the animationData to prevent it from being mutated
-    animationData = cloneDeep(props.data);
-  } else if (props.link != "") {
-    // fetch the animation data from the url
-
-    try {
-      const response = await fetch(props.link);
-
-      const responseJSON = await response.json();
-
-      animationData = responseJSON;
-    } catch (error) {
-      console.error(error);
+  try {
+    // track and ensure that `lottieAnimationContainer` is mounted
+    if (!lottieAnimationContainer.value) return;
+    if (!isVite) {
+      console.error(
+        "[Nuxt Lottie] You must use Vite to load animations by name"
+      );
       return;
     }
-  } else {
-    throw new Error("You must provide either name, data or link");
-  }
 
-  loadLottie();
+    if (props.name) {
+      const selectedAnimation =
+        allAnimations[`${folderPath}/${props.name}.json`]?.default;
+
+      if (selectedAnimation) {
+        animationData = selectedAnimation;
+      } else {
+        // Check if autoFolderCreation is disabled and provide helpful error message
+        if (!autoFolderCreation) {
+          console.error(
+            `[Nuxt Lottie] Lottie file not found: ${folderPath}/${props.name}.json`
+          );
+          console.warn(
+            `[Nuxt Lottie] Auto folder creation is disabled.
+Please ensure the folder exists at: ${folderPath}`
+          );
+          console.warn(
+            `[Nuxt Lottie] Tip: You can enable auto folder creation by setting 'autoFolderCreation: true' in your nuxt.config.ts`
+          );
+        } else {
+          console.error(
+            `[Nuxt Lottie] Lottie file not found: ${folderPath}/${props.name}.json. 
+Please ensure the file exists in the correct location.`
+          );
+        }
+        return;
+      }
+    } else if (isEqual(props.data, {}) === false) {
+      // clone the animationData to prevent it from being mutated
+      animationData = cloneDeep(props.data);
+    } else if (props.link != "") {
+      // fetch the animation data from the url
+      try {
+        const response = await fetch(props.link);
+
+        const responseJSON = await response.json();
+
+        animationData = responseJSON;
+      } catch (error) {
+        console.error(
+          `[Nuxt Lottie] Failed to fetch lottie animation from URL: ${props.link}`
+        );
+        return;
+      }
+    } else {
+      console.error(
+        "[Nuxt Lottie] You must provide either name, data or link prop"
+      );
+      return;
+    }
+
+    loadLottie();
+  } catch (error) {
+    console.error("[Nuxt Lottie] Error in watchEffect:", error);
+  }
 });
 
 const loadLottie = () => {
