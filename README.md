@@ -28,7 +28,7 @@ npx nuxi module add lottie
 
 That's it ✨ Now you can use the `<Lottie>` component in your Vue files. That prompt will automatically install the module and add it to your `nuxt.config.ts` file.
 
-#### Manual Installation
+### Manual Installation
 
 If you prefer manual installation, you can add `nuxt-lottie` to your project using your preferred package manager.
 
@@ -59,7 +59,7 @@ export default defineNuxtConfig({
 })
 ```
 
-### 3. Verify Folder Structure
+### Verify Folder Structure
 
 After installation, ensure that the `assets/lottie` folder exists. If it doesn't, the module will automatically create it for you. You can change the folder path using the `lottieFolder` option in the `nuxt.config.ts` file.
 
