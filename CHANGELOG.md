@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.0.5
+
+### 🩹 Fixes
+
+- Fix a bug which the types not exporting from the `dist/types.d.ts` ([#9](https://github.com/volkanakkus/nuxt-lottie/pull/9))
+
+### ❤️ Contributors
+
+- [volkanakkus](https://github.com/volkanakkus)
+
 ## v1.0.4
 
 ### 🚀 Enhancements
