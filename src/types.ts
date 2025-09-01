@@ -1,14 +1,7 @@
-import type {
-  AnimationItem,
-  AnimationDirection,
-  AnimationSegment,
-  LottiePlayer,
-} from "lottie-web";
-
 /**
  * Lottie component props type
  */
-export interface LottieProps {
+interface _LottieProps {
   data: any;
   name: string;
   link: string;
@@ -38,7 +31,7 @@ export interface LottieProps {
 /**
  * Public API for Lottie component instance methods
  */
-export interface Lottie {
+interface _Lottie {
   play: () => void;
   pause: () => void;
   stop: () => void;
@@ -56,9 +49,9 @@ export interface Lottie {
   updateDocumentData: (documentData: any, index?: number) => void;
 }
 
-export type {
-  AnimationItem,
-  AnimationDirection,
-  AnimationSegment,
-  LottiePlayer,
-};
+export type Lottie = _Lottie;
+export type LottieProps = _LottieProps;
+export type AnimationItem = import("lottie-web").AnimationItem;
+export type AnimationDirection = import("lottie-web").AnimationDirection;
+export type AnimationSegment = import("lottie-web").AnimationSegment;
+export type LottiePlayer = import("lottie-web").LottiePlayer;
