@@ -15,14 +15,7 @@ export interface ModuleOptions {
   enableLogs?: boolean;
 }
 
-export type {
-  Lottie,
-  LottieProps,
-  AnimationItem,
-  AnimationDirection,
-  AnimationSegment,
-  LottiePlayer,
-} from "./types";
+export type * from "./types";
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
