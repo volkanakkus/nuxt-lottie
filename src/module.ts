@@ -5,6 +5,7 @@ import {
   createResolver,
   useLogger,
   addTemplate,
+  addTypeTemplate,
 } from "@nuxt/kit";
 import { join } from "path";
 
@@ -113,6 +114,16 @@ export default defineNuxtModule<ModuleOptions>({
         export const folderPath = '${lottieFolder}';
         export const autoFolderCreation = ${shouldCreateFolder};
       `,
+    });
+
+    addTypeTemplate({
+      filename: "types/lottie-web.d.ts",
+      src: resolve("../types/lottie-web.d.ts"),
+    });
+
+    addTypeTemplate({
+      filename: "types/lottie-animations.d.ts",
+      src: resolve("../types/lottie-animations.d.ts"),
     });
   },
 });
