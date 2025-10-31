@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.0.6
+
+### 🩹 Fixes
+
+- Fix a bug which `vue-tsc` cannot access the type templates  ([#5](https://github.com/volkanakkus/nuxt-lottie/issues/5))
+  
+[compare changes](https://github.com/volkanakkus/nuxt-lottie/compare/v1.0.5...v1.0.6)
+
+
+### ❤️ Contributors
+
+- [volkanakkus](https://github.com/volkanakkus)
+
 ## v1.0.5
 
 ### 🩹 Fixes
