@@ -1,6 +1,6 @@
 {
   "name": "nuxt-lottie",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Easily integrate Lottie animations into your Nuxt project",
   "repository": "volkanakkus/nuxt-lottie",
   "license": "MIT",
@@ -34,7 +34,8 @@
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "scripts": {
     "prepack": "nuxt-module-build build",

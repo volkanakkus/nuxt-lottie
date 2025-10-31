@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.0.7
+
+### 🩹 Fixes
+
+- Introduce `types` folder to package ([#5](https://github.com/volkanakkus/nuxt-lottie/issues/5))
+  
+[compare changes](https://github.com/volkanakkus/nuxt-lottie/compare/v1.0.6...v1.0.7)
+
+### ❤️ Contributors
+
+- @volkanakkus
+
 ## v1.0.6
 
 ### 🩹 Fixes
@@ -11,7 +23,11 @@
 
 ### ❤️ Contributors
 
-- [volkanakkus](https://github.com/volkanakkus)
+- @volkanakkus
+
+### ✨ Thanks To:
+
+- @ilyasaftr, @thomas-auffroy, @Valgri -  [#5](https://github.com/volkanakkus/nuxt-lottie/issues/5) 
 
 ## v1.0.5
 
@@ -21,7 +37,7 @@
 
 ### ❤️ Contributors
 
-- [volkanakkus](https://github.com/volkanakkus)
+- @volkanakkus
 
 ## v1.0.4
 
@@ -39,7 +55,7 @@
 
 ### ❤️ Contributors
 
-- [volkanakkus](https://github.com/volkanakkus)
+- @volkanakkus
 
 ## v1.0.3
 
@@ -51,7 +67,7 @@
 
 ### ❤️ Contributors
 
-- [volkanakkus](https://github.com/volkanakkus)
+- @volkanakkus
   
 ### ✨ Thanks To:
 
@@ -75,7 +91,7 @@
 
 ### ❤️ Contributors
 
-- [volkanakkus](https://github.com/volkanakkus)
+- @volkanakkus
 
 ## v1.0.1
 
@@ -97,7 +113,7 @@
 
 ### ❤️ Contributors
 
-- [volkanakkus](https://github.com/volkanakkus)
+- @volkanakkus
   
 ### ✨ Thanks To:
 
@@ -119,5 +135,5 @@
 
 ### ❤️ Contributors
 
-- [volkanakkus](https://github.com/volkanakkus)
+- @volkanakkus
 
