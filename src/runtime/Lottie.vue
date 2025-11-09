@@ -267,18 +267,14 @@ const loadLottie = () => {
   lottieAnimation = Lottie.loadAnimation(lottieAnimationConfig);
 
   setTimeout(() => {
-    autoplay = props.autoplay;
-
-    if (props.playOnHover) {
+    // Respect pauseAnimation / playOnHover first
+    if (props.pauseAnimation || props.playOnHover) {
       lottieAnimation?.pause();
+    } else if (props.autoplay) {
+      lottieAnimation?.play();
     } else {
-      if (autoplay) {
-        lottieAnimation?.play();
-      } else {
-        lottieAnimation?.pause();
-      }
+      lottieAnimation?.pause();
     }
-
     /**
      * Emit an `onAnimationLoaded` event when the animation is loaded
      * This should help with times where you want to run functions on the ref of the element
