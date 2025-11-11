@@ -275,6 +275,7 @@ const loadLottie = () => {
     } else {
       lottieAnimation?.pause();
     }
+
     /**
      * Emit an `onAnimationLoaded` event when the animation is loaded
      * This should help with times where you want to run functions on the ref of the element
