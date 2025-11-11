@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.0.8
+
+### 🩹 Fixes
+
+- Refactor animation playback control logic ([#14](https://github.com/volkanakkus/nuxt-lottie/pull/14))
+  
+[compare changes](https://github.com/volkanakkus/nuxt-lottie/compare/v1.0.7...v1.0.8)
+
+### ❤️ Contributors
+
+- [@f3yisayo](https://github.com/volkanakkus/nuxt-lottie/pull/14)
+
+
 ## v1.0.7
 
 ### 🩹 Fixes
@@ -10,7 +23,8 @@
 
 ### ❤️ Contributors
 
-- @volkanakkus
+- [@volkanakkus](https://github.com/volkanakkus)
+
 
 ## v1.0.6
 
@@ -23,7 +37,8 @@
 
 ### ❤️ Contributors
 
-- @volkanakkus
+- [@volkanakkus](https://github.com/volkanakkus)
+
 
 ### ✨ Thanks To:
 
@@ -37,7 +52,8 @@
 
 ### ❤️ Contributors
 
-- @volkanakkus
+- [@volkanakkus](https://github.com/volkanakkus)
+
 
 ## v1.0.4
 
@@ -55,7 +71,8 @@
 
 ### ❤️ Contributors
 
-- @volkanakkus
+- [@volkanakkus](https://github.com/volkanakkus)
+
 
 ## v1.0.3
 
@@ -67,7 +84,8 @@
 
 ### ❤️ Contributors
 
-- @volkanakkus
+- [@volkanakkus](https://github.com/volkanakkus)
+
   
 ### ✨ Thanks To:
 
@@ -91,7 +109,8 @@
 
 ### ❤️ Contributors
 
-- @volkanakkus
+- [@volkanakkus](https://github.com/volkanakkus)
+
 
 ## v1.0.1
 
@@ -113,7 +132,8 @@
 
 ### ❤️ Contributors
 
-- @volkanakkus
+- [@volkanakkus](https://github.com/volkanakkus)
+
   
 ### ✨ Thanks To:
 
@@ -135,5 +155,6 @@
 
 ### ❤️ Contributors
 
-- @volkanakkus
+- [@volkanakkus](https://github.com/volkanakkus)
+
 
