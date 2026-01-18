@@ -74,6 +74,20 @@ your-project/
 └── ...
 ```
 
+## What are Lottie JSON Files?
+
+Lottie JSON files (`.json`) are animation files exported from Adobe After Effects using the Lottie plugin (Bodymovin). These files contain all the animation data in JSON format, including:
+- **Layers and shapes**: Vector-based animation elements
+- **Keyframes**: Animation timing and transformations
+- **Colors and effects**: Visual properties of the animation
+- **Asset references**: Links to any external images or fonts
+
+**Supported Formats:**
+- ✅ **JSON files** (`.json`) - The standard Lottie format (fully supported)
+- ❌ **dotLottie files** (`.lottie`) - Compressed format (not currently supported)
+
+**Note:** dotLottie (`.lottie`) files are a newer compressed format that packages animations with assets. This module currently supports the standard JSON format only. To use a `.lottie` file, you'll need to extract the JSON from it first, or use the JSON version of your animation from [LottieFiles](https:\/\/lottiefiles.com).
+
 ## Usage
 
 There are 3 ways to use <Lottie> component:
