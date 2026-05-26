@@ -14,7 +14,10 @@ import {
   animations,
   folderPath,
   autoFolderCreation,
+  defaults,
 } from "#build/lottie-animations";
+
+const d = defaults as Record<string, any>;
 
 import type { PropType } from "vue";
 
@@ -45,59 +48,59 @@ const props = defineProps({
   },
   loop: {
     type: [Boolean, Number] as PropType<LottieProps["loop"]>,
-    default: true,
+    default: "loop" in d ? d.loop : true,
   },
   autoplay: {
     type: Boolean as PropType<LottieProps["autoplay"]>,
-    default: true,
+    default: "autoplay" in d ? d.autoplay : true,
   },
   width: {
     type: [Number, String] as PropType<LottieProps["width"]>,
-    default: "100%",
+    default: "width" in d ? d.width : "100%",
   },
   height: {
     type: [Number, String] as PropType<LottieProps["height"]>,
-    default: "100%",
+    default: "height" in d ? d.height : "100%",
   },
   speed: {
     type: Number as PropType<LottieProps["speed"]>,
-    default: 1,
+    default: "speed" in d ? d.speed : 1,
   },
   delay: {
     type: Number as PropType<LottieProps["delay"]>,
-    default: 0,
+    default: "delay" in d ? d.delay : 0,
   },
   direction: {
     type: String as PropType<LottieProps["direction"]>,
-    default: "forward",
+    default: "direction" in d ? d.direction : "forward",
   },
   pauseOnHover: {
     type: Boolean as PropType<LottieProps["pauseOnHover"]>,
-    default: false,
+    default: "pauseOnHover" in d ? d.pauseOnHover : false,
   },
   playOnHover: {
     type: Boolean as PropType<LottieProps["playOnHover"]>,
-    default: false,
+    default: "playOnHover" in d ? d.playOnHover : false,
   },
   backgroundColor: {
     type: String as PropType<LottieProps["backgroundColor"]>,
-    default: "transparent",
+    default: "backgroundColor" in d ? d.backgroundColor : "transparent",
   },
   pauseAnimation: {
     type: Boolean as PropType<LottieProps["pauseAnimation"]>,
-    default: false,
+    default: "pauseAnimation" in d ? d.pauseAnimation : false,
   },
   noMargin: {
     type: Boolean as PropType<LottieProps["noMargin"]>,
-    default: false,
+    default: "noMargin" in d ? d.noMargin : false,
   },
   scale: {
     type: Number as PropType<LottieProps["scale"]>,
-    default: 1,
+    default: "scale" in d ? d.scale : 1,
   },
   renderer: {
     type: String as PropType<LottieProps["renderer"]>,
-    default: "svg",
+    default: "renderer" in d ? d.renderer : "svg",
   },
   rendererSettings: {
     type: Object as PropType<LottieProps["rendererSettings"]>,
@@ -105,7 +108,7 @@ const props = defineProps({
   },
   assetsPath: {
     type: String as PropType<LottieProps["assetsPath"]>,
-    default: "",
+    default: "assetsPath" in d ? d.assetsPath : "",
   },
 });
 

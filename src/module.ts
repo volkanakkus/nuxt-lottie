@@ -9,11 +9,30 @@ import {
 } from "@nuxt/kit";
 import { join } from "path";
 
+export interface LottieDefaults {
+  loop?: boolean | number;
+  autoplay?: boolean;
+  width?: number | string;
+  height?: number | string;
+  speed?: number;
+  delay?: number;
+  direction?: string;
+  pauseOnHover?: boolean;
+  playOnHover?: boolean;
+  backgroundColor?: string;
+  pauseAnimation?: boolean;
+  noMargin?: boolean;
+  scale?: number;
+  renderer?: string;
+  assetsPath?: string;
+}
+
 export interface ModuleOptions {
   componentName?: string;
   lottieFolder?: string;
   autoFolderCreation?: boolean;
   enableLogs?: boolean;
+  defaults?: LottieDefaults;
 }
 
 export type * from "./types";
@@ -113,6 +132,7 @@ export default defineNuxtModule<ModuleOptions>({
         export const animations = import.meta.glob('${lottieFolder}/**/*.json', { eager: true });
         export const folderPath = '${lottieFolder}';
         export const autoFolderCreation = ${shouldCreateFolder};
+        export const defaults = ${JSON.stringify(options.defaults ?? {})};
       `,
     });
 
