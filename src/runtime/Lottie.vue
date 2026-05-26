@@ -266,6 +266,8 @@ const loadLottie = () => {
   // actually load the animation
   lottieAnimation = Lottie.loadAnimation(lottieAnimationConfig);
 
+  if (!lottieAnimation) return;
+
   setTimeout(() => {
     // Respect pauseAnimation / playOnHover first
     if (props.pauseAnimation || props.playOnHover) {
