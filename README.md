@@ -16,6 +16,7 @@ Nuxt Lottie - Easily integrate Lottie animations into your Nuxt project.
 - 🗂️ Automatic Imports
 - 🎨 Nested Folder Support
 - 🛠️ Programmatic Control
+- ⚙️ Module-level Default Props
 - 💚 Nuxt 4 Ready
 
 ## Quick Setup
@@ -54,7 +55,11 @@ export default defineNuxtConfig({
     componentName: 'Lottie', // Optional: Customize the component name
     lottieFolder: '/assets/lottie', // Optional: Customize the Lottie folder path
     autoFolderCreation: true, // Optional: Auto create lottie folder (default: true)
-    enableLogs: true // Optional: Enable console logs from module (default: true)
+    enableLogs: true, // Optional: Enable console logs from module (default: true)
+    defaults: { // Optional: Set default prop values for all <Lottie> instances
+      loop: false,
+      autoplay: false,
+    }
   }
 })
 ```
@@ -172,6 +177,32 @@ You can configure the module behavior in your `nuxt.config.ts` file:
 | lottieFolder       | String  | "/assets/lottie" | Customize the Lottie folder path where animations are stored                                                                   |
 | autoFolderCreation | Boolean | true             | Automatically create the lottie folder if it doesn't exist. You can disable for client-only apps or manual folder management          |
 | enableLogs         | Boolean | true             | Enable terminal logs from the module during development. Disable if you like silence.                                       |
+| defaults           | Object  | {}               | Set default prop values for every `<Lottie>` instance project-wide. Any prop listed in the Props table can be used as a key. Per-instance props always take priority. |
+
+### Component Defaults
+
+Use `lottie.defaults` to avoid repeating the same props on every `<Lottie>` usage. Any prop from the table below can be set as a key. Individual instances can still override them.
+
+```ts
+// nuxt.config.ts
+export default defineNuxtConfig({
+  lottie: {
+    defaults: {
+      loop: false,
+      autoplay: false,
+      renderer: 'canvas',
+    },
+  },
+})
+```
+
+```vue
+<!-- uses module defaults: loop=false, autoplay=false, renderer='canvas' -->
+<Lottie name="confetti" />
+
+<!-- overrides loop locally; other defaults still apply -->
+<Lottie name="confetti" :loop="3" />
+```
 
 ## `<Lottie>` Props: 
 
