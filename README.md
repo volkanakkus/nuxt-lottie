@@ -177,11 +177,11 @@ You can configure the module behavior in your `nuxt.config.ts` file:
 | lottieFolder       | String  | "/assets/lottie" | Customize the Lottie folder path where animations are stored                                                                   |
 | autoFolderCreation | Boolean | true             | Automatically create the lottie folder if it doesn't exist. You can disable for client-only apps or manual folder management          |
 | enableLogs         | Boolean | true             | Enable terminal logs from the module during development. Disable if you like silence.                                       |
-| defaults           | Object  | {}               | Set default prop values for every `<Lottie>` instance project-wide. Any prop listed in the Props table can be used as a key. Per-instance props always take priority. |
+| defaults           | Object  | {}               | Set default prop values for every `<Lottie>` instance project-wide. Use the component’s **camelCase** prop keys (e.g. `pauseAnimation`, `pauseOnHover`, `rendererSettings`). Per-instance props always take priority. |
 
 ### Component Defaults
 
-Use `lottie.defaults` to avoid repeating the same props on every `<Lottie>` usage. Any prop from the table below can be set as a key. Individual instances can still override them.
+Use `lottie.defaults` to avoid repeating the same props on every `<Lottie>` usage. Use camelCase keys matching the component props (not kebab-case). Individual instances can still override them.
 
 ```ts
 // nuxt.config.ts
