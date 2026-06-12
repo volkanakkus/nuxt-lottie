@@ -16,6 +16,7 @@ Nuxt Lottie - Easily integrate Lottie animations into your Nuxt project.
 - 🗂️ Automatic Imports
 - 🎨 Nested Folder Support
 - 🛠️ Programmatic Control
+- 🖼️ SSR Fallback Slot
 - 💚 Nuxt 4 Ready
 
 ## Quick Setup
@@ -132,6 +133,20 @@ import HelloJSON from './hello.json'
 ```
 
 
+
+## SSR Fallback Slot
+
+Because Lottie animations are client-only, the component renders nothing on the server by default. You can pass a `#fallback` slot to show a static placeholder during SSR and before hydration — no `<ClientOnly>` wrapper needed.
+
+```vue
+<Lottie name="rocket">
+  <template #fallback>
+    <img src="/rocket-static.png" alt="rocket" />
+  </template>
+</Lottie>
+```
+
+The fallback is replaced by the animation once the client takes over. If no `#fallback` slot is provided, the behaviour is identical to before.
 
 ## Programmatic Control
 

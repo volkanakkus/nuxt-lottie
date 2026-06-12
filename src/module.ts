@@ -42,6 +42,13 @@ export default defineNuxtModule<ModuleOptions>({
       mode: "client",
     });
 
+    addComponent({
+      name: `${options.componentName}`,
+      global: true,
+      filePath: resolve("./runtime/LottieFallback.vue"),
+      mode: "server",
+    });
+
     const logger = useLogger("nuxt-lottie");
 
     const isSSR = nuxt.options.ssr !== false;
