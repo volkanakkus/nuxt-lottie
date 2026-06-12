@@ -1,48 +1,66 @@
 # Changelog
 
+## v1.0.9
+
+### 🚀 Enhancements
+
+- Add module-level default prop values via lottie.defaults config ([3273ffb](https://github.com/volkanakkus/nuxt-lottie/commit/3273ffb))
+
+### 🩹 Fixes
+
+- Add null guard after loadAnimation to resolve TS18047 errors ([dae829f](https://github.com/volkanakkus/nuxt-lottie/commit/dae829f))
+- Potential fix for pull request finding ([ee4c574](https://github.com/volkanakkus/nuxt-lottie/commit/ee4c574))
+- Apply fixes for default prop values feat. ([8f33c89](https://github.com/volkanakkus/nuxt-lottie/commit/8f33c89))
+
+### 📖 Documentation
+
+- Document module-level defaults option ([12e7186](https://github.com/volkanakkus/nuxt-lottie/commit/12e7186))
+- [compare changes](https://github.com/volkanakkus/nuxt-lottie/compare/v1.0.8...v1.0.9)
+
+### ❤️ Contributors
+
+- [@volkanakkus](https://github.com/volkanakkus)
+- [@stijns96](https://github.com/volkanakkus/nuxt-lottie/pull/23)
+
 ## v1.0.8
 
 ### 🩹 Fixes
 
 - Refactor animation playback control logic ([#14](https://github.com/volkanakkus/nuxt-lottie/pull/14))
-  
+
 [compare changes](https://github.com/volkanakkus/nuxt-lottie/compare/v1.0.7...v1.0.8)
 
 ### ❤️ Contributors
 
 - [@f3yisayo](https://github.com/volkanakkus/nuxt-lottie/pull/14)
 
-
 ## v1.0.7
 
 ### 🩹 Fixes
 
 - Introduce `types` folder to package ([#5](https://github.com/volkanakkus/nuxt-lottie/issues/5))
-  
+
 [compare changes](https://github.com/volkanakkus/nuxt-lottie/compare/v1.0.6...v1.0.7)
 
 ### ❤️ Contributors
 
 - [@volkanakkus](https://github.com/volkanakkus)
 
-
 ## v1.0.6
 
 ### 🩹 Fixes
 
-- Fix a bug which `vue-tsc` cannot access the type templates  ([#5](https://github.com/volkanakkus/nuxt-lottie/issues/5))
-  
-[compare changes](https://github.com/volkanakkus/nuxt-lottie/compare/v1.0.5...v1.0.6)
+- Fix a bug which `vue-tsc` cannot access the type templates ([#5](https://github.com/volkanakkus/nuxt-lottie/issues/5))
 
+[compare changes](https://github.com/volkanakkus/nuxt-lottie/compare/v1.0.5...v1.0.6)
 
 ### ❤️ Contributors
 
 - [@volkanakkus](https://github.com/volkanakkus)
 
-
 ### ✨ Thanks To:
 
-- @ilyasaftr, @thomas-auffroy, @Valgri -  [#5](https://github.com/volkanakkus/nuxt-lottie/issues/5) 
+- @ilyasaftr, @thomas-auffroy, @Valgri - [#5](https://github.com/volkanakkus/nuxt-lottie/issues/5)
 
 ## v1.0.5
 
@@ -53,7 +71,6 @@
 ### ❤️ Contributors
 
 - [@volkanakkus](https://github.com/volkanakkus)
-
 
 ## v1.0.4
 
@@ -73,7 +90,6 @@
 
 - [@volkanakkus](https://github.com/volkanakkus)
 
-
 ## v1.0.3
 
 ### 🩹 Fixes
@@ -86,10 +102,9 @@
 
 - [@volkanakkus](https://github.com/volkanakkus)
 
-  
 ### ✨ Thanks To:
 
-- [@OleksiiKDev: #3](https://github.com/volkanakkus/nuxt-lottie/issues/3) 
+- [@OleksiiKDev: #3](https://github.com/volkanakkus/nuxt-lottie/issues/3)
 
 ## v1.0.2
 
@@ -111,12 +126,11 @@
 
 - [@volkanakkus](https://github.com/volkanakkus)
 
-
 ## v1.0.1
 
 ### 🩹 Fixes
 
-- Define type to fix strict  type errors ([#1](https://github.com/volkanakkus/nuxt-lottie/issues/1))
+- Define type to fix strict type errors ([#1](https://github.com/volkanakkus/nuxt-lottie/issues/1))
 
 ### 📖 Documentation
 
@@ -127,17 +141,16 @@
 ### 🏡 Chore
 
 - Shorten data and link props ([c14e878](https://github.com/volkanakkus/nuxt-lottie/commit/c14e878))
- 
+
 [compare changes](https://github.com/volkanakkus/nuxt-lottie/compare/v1.0.0...v1.0.1)
 
 ### ❤️ Contributors
 
 - [@volkanakkus](https://github.com/volkanakkus)
 
-  
 ### ✨ Thanks To:
 
-- [@OleksiiKDev: #1](https://github.com/volkanakkus/nuxt-lottie/issues/1) 
+- [@OleksiiKDev: #1](https://github.com/volkanakkus/nuxt-lottie/issues/1)
 
 ---
 
@@ -146,6 +159,7 @@
 - Initial release of the package!
 
 ### 🚀 Enhancements
+
 - Add lottie folder create ([db528a2](https://github.com/volkanakkus/nuxt-lottie/commit/db528a2))
 - Add auto import and generate lottie folder ([5bc884a](https://github.com/volkanakkus/nuxt-lottie/commit/5bc884a))
 
@@ -156,5 +170,3 @@
 ### ❤️ Contributors
 
 - [@volkanakkus](https://github.com/volkanakkus)
-
-
