@@ -16,9 +16,6 @@ import {
   autoFolderCreation,
   defaults,
 } from "#build/lottie-animations";
-
-const d = defaults as Record<string, any>;
-
 import type { PropType } from "vue";
 
 import Lottie from "lottie-web/build/player/esm/lottie.min.js";
@@ -48,59 +45,60 @@ const props = defineProps({
   },
   loop: {
     type: [Boolean, Number] as PropType<LottieProps["loop"]>,
-    default: "loop" in d ? d.loop : true,
+    default: (defaults as Partial<LottieProps>).loop ?? true,
   },
   autoplay: {
     type: Boolean as PropType<LottieProps["autoplay"]>,
-    default: "autoplay" in d ? d.autoplay : true,
+    default: (defaults as Partial<LottieProps>).autoplay ?? true,
   },
   width: {
     type: [Number, String] as PropType<LottieProps["width"]>,
-    default: "width" in d ? d.width : "100%",
+    default: (defaults as Partial<LottieProps>).width ?? "100%",
   },
   height: {
     type: [Number, String] as PropType<LottieProps["height"]>,
-    default: "height" in d ? d.height : "100%",
+    default: (defaults as Partial<LottieProps>).height ?? "100%",
   },
   speed: {
     type: Number as PropType<LottieProps["speed"]>,
-    default: "speed" in d ? d.speed : 1,
+    default: (defaults as Partial<LottieProps>).speed ?? 1,
   },
   delay: {
     type: Number as PropType<LottieProps["delay"]>,
-    default: "delay" in d ? d.delay : 0,
+    default: (defaults as Partial<LottieProps>).delay ?? 0,
   },
   direction: {
     type: String as PropType<LottieProps["direction"]>,
-    default: "direction" in d ? d.direction : "forward",
+    default: (defaults as Partial<LottieProps>).direction ?? "forward",
   },
   pauseOnHover: {
     type: Boolean as PropType<LottieProps["pauseOnHover"]>,
-    default: "pauseOnHover" in d ? d.pauseOnHover : false,
+    default: (defaults as Partial<LottieProps>).pauseOnHover ?? false,
   },
   playOnHover: {
     type: Boolean as PropType<LottieProps["playOnHover"]>,
-    default: "playOnHover" in d ? d.playOnHover : false,
+    default: (defaults as Partial<LottieProps>).playOnHover ?? false,
   },
   backgroundColor: {
     type: String as PropType<LottieProps["backgroundColor"]>,
-    default: "backgroundColor" in d ? d.backgroundColor : "transparent",
+    default:
+      (defaults as Partial<LottieProps>).backgroundColor ?? "transparent",
   },
   pauseAnimation: {
     type: Boolean as PropType<LottieProps["pauseAnimation"]>,
-    default: "pauseAnimation" in d ? d.pauseAnimation : false,
+    default: (defaults as Partial<LottieProps>).pauseAnimation ?? false,
   },
   noMargin: {
     type: Boolean as PropType<LottieProps["noMargin"]>,
-    default: "noMargin" in d ? d.noMargin : false,
+    default: (defaults as Partial<LottieProps>).noMargin ?? false,
   },
   scale: {
     type: Number as PropType<LottieProps["scale"]>,
-    default: "scale" in d ? d.scale : 1,
+    default: (defaults as Partial<LottieProps>).scale ?? 1,
   },
   renderer: {
     type: String as PropType<LottieProps["renderer"]>,
-    default: "renderer" in d ? d.renderer : "svg",
+    default: (defaults as Partial<LottieProps>).renderer ?? "svg",
   },
   rendererSettings: {
     type: Object as PropType<LottieProps["rendererSettings"]>,
@@ -108,7 +106,7 @@ const props = defineProps({
   },
   assetsPath: {
     type: String as PropType<LottieProps["assetsPath"]>,
-    default: "assetsPath" in d ? d.assetsPath : "",
+    default: (defaults as Partial<LottieProps>).assetsPath ?? "",
   },
 });
 
@@ -144,7 +142,7 @@ watchEffect(async () => {
     if (!lottieAnimationContainer.value) return;
     if (!isVite) {
       console.error(
-        "[Nuxt Lottie] You must use Vite to load animations by name"
+        "[Nuxt Lottie] You must use Vite to load animations by name",
       );
       return;
     }
@@ -159,19 +157,19 @@ watchEffect(async () => {
         // Check if autoFolderCreation is disabled and provide helpful error message
         if (!autoFolderCreation) {
           console.error(
-            `[Nuxt Lottie] Lottie file not found: ${folderPath}/${props.name}.json`
+            `[Nuxt Lottie] Lottie file not found: ${folderPath}/${props.name}.json`,
           );
           console.warn(
             `[Nuxt Lottie] Auto folder creation is disabled.
-Please ensure the folder exists at: ${folderPath}`
+Please ensure the folder exists at: ${folderPath}`,
           );
           console.warn(
-            `[Nuxt Lottie] Tip: You can enable auto folder creation by setting 'autoFolderCreation: true' in your nuxt.config.ts`
+            `[Nuxt Lottie] Tip: You can enable auto folder creation by setting 'autoFolderCreation: true' in your nuxt.config.ts`,
           );
         } else {
           console.error(
             `[Nuxt Lottie] Lottie file not found: ${folderPath}/${props.name}.json. 
-Please ensure the file exists in the correct location.`
+Please ensure the file exists in the correct location.`,
           );
         }
         return;
@@ -189,13 +187,13 @@ Please ensure the file exists in the correct location.`
         animationData = responseJSON;
       } catch (error) {
         console.error(
-          `[Nuxt Lottie] Failed to fetch lottie animation from URL: ${props.link}`
+          `[Nuxt Lottie] Failed to fetch lottie animation from URL: ${props.link}`,
         );
         return;
       }
     } else {
       console.error(
-        "[Nuxt Lottie] You must provide either name, data or link prop"
+        "[Nuxt Lottie] You must provide either name, data or link prop",
       );
       return;
     }
@@ -384,7 +382,7 @@ watch(
     // error if pauseAnimation is true and pauseOnHover is also true or playOnHover is also true
     if ((props.pauseOnHover || props.playOnHover) && props.pauseAnimation) {
       console.error(
-        "If you are using pauseAnimation prop for Vue3-Lottie, please remove the props pauseOnHover and playOnHover"
+        "If you are using pauseAnimation prop for Vue3-Lottie, please remove the props pauseOnHover and playOnHover",
       );
       return;
     }
@@ -397,7 +395,7 @@ watch(
         lottieAnimation.play();
       }
     }
-  }
+  },
 );
 
 // method to play the animation
@@ -469,7 +467,7 @@ const goToAndPlay = (frame: number, isFrame: boolean = true) => {
 
 const playSegments = (
   segments: AnimationSegment | AnimationSegment[],
-  forceFlag: boolean = false
+  forceFlag: boolean = false,
 ) => {
   //segments: array. Can contain 2 numeric values that will be used as first and last frame of the animation. Or can contain a sequence of arrays each with 2 numeric values.
   //forceFlag: boolean. If set to false, it will wait until the current segment is complete. If true, it will update values immediately.

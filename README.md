@@ -7,12 +7,14 @@
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-Nuxt Lottie - Easily integrate Lottie animations into your Nuxt project.  
-- Compatibility: ```Nuxt >= 3```
+Nuxt Lottie - Easily integrate Lottie animations into your Nuxt project.
+
+- Compatibility: `Nuxt >= 3`
 
 [✨ &nbsp;Release Notes](/CHANGELOG.md)
 
 ## Features
+
 - 🗂️ Automatic Imports
 - 🎨 Nested Folder Support
 - 🛠️ Programmatic Control
@@ -48,20 +50,19 @@ Then add the module to the `modules` section of your `nuxt.config.ts` file.
 
 ```js
 export default defineNuxtConfig({
-  modules: [
-    'nuxt-lottie'
-  ],
+  modules: ["nuxt-lottie"],
   lottie: {
-    componentName: 'Lottie', // Optional: Customize the component name
-    lottieFolder: '/assets/lottie', // Optional: Customize the Lottie folder path
+    componentName: "Lottie", // Optional: Customize the component name
+    lottieFolder: "/assets/lottie", // Optional: Customize the Lottie folder path
     autoFolderCreation: true, // Optional: Auto create lottie folder (default: true)
     enableLogs: true, // Optional: Enable console logs from module (default: true)
-    defaults: { // Optional: Set default prop values for all <Lottie> instances
+    defaults: {
+      // Optional: Set default prop values for all <Lottie> instances
       loop: false,
       autoplay: false,
-    }
-  }
-})
+    },
+  },
+});
 ```
 
 ### Verify Folder Structure
@@ -82,10 +83,11 @@ your-project/
 ## Usage
 
 There are 3 ways to use <Lottie> component:
+
 - 1: Using `name` prop with automatic imports of Lottie JSON files
 - 2: Using `data` prop with provided Lottie JSON object
 - 3: Using `link` prop with Lottie JSON link from CDN or any other source
- 
+
 Priority is given to the `name` prop, then `data` prop, and finally `link` prop.
 
 ## 1. Using `name` prop with automatic imports of JSON files
@@ -120,11 +122,11 @@ Import and use the `<Lottie>` component in your Vue files.
 
 ```vue
 <template>
-  <Lottie :data="HelloJSON"  />
+  <Lottie :data="HelloJSON" />
 </template>
 
 <script setup lang="ts">
-import HelloJSON from './hello.json'
+import HelloJSON from "./hello.json";
 </script>
 ```
 
@@ -132,11 +134,9 @@ import HelloJSON from './hello.json'
 
 ```vue
 <template>
-  <Lottie link="https://assets10.lottiefiles.com/packages/lf20_soCRuE.json"  />
+  <Lottie link="https://assets10.lottiefiles.com/packages/lf20_soCRuE.json" />
 </template>
 ```
-
-
 
 ## Programmatic Control
 
@@ -152,18 +152,18 @@ Additionally, you can import the type of the Lottie component for better TypeScr
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import type { Lottie } from 'nuxt-lottie'
+import { ref } from "vue";
+import type { Lottie } from "nuxt-lottie";
 
-const awesomeLottie = ref<Lottie | null>(null)
+const awesomeLottie = ref<Lottie | null>(null);
 
 const playAnimation = () => {
-  awesomeLottie.value?.play()
-}
+  awesomeLottie.value?.play();
+};
 
 const pauseAnimation = () => {
-  awesomeLottie.value?.pause()
-}
+  awesomeLottie.value?.pause();
+};
 </script>
 ```
 
@@ -171,12 +171,12 @@ const pauseAnimation = () => {
 
 You can configure the module behavior in your `nuxt.config.ts` file:
 
-| Option             | Type    | Default Value     | Description                                                                                                                    |
-| ------------------ | ------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| componentName      | String  | "Lottie"         | Customize the component name (e.g., set to "LottieAnimation" to use `<LottieAnimation>` instead of `<Lottie>`)               |
-| lottieFolder       | String  | "/assets/lottie" | Customize the Lottie folder path where animations are stored                                                                   |
-| autoFolderCreation | Boolean | true             | Automatically create the lottie folder if it doesn't exist. You can disable for client-only apps or manual folder management          |
-| enableLogs         | Boolean | true             | Enable terminal logs from the module during development. Disable if you like silence.                                       |
+| Option             | Type    | Default Value    | Description                                                                                                                                                                                                           |
+| ------------------ | ------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| componentName      | String  | "Lottie"         | Customize the component name (e.g., set to "LottieAnimation" to use `<LottieAnimation>` instead of `<Lottie>`)                                                                                                        |
+| lottieFolder       | String  | "/assets/lottie" | Customize the Lottie folder path where animations are stored                                                                                                                                                          |
+| autoFolderCreation | Boolean | true             | Automatically create the lottie folder if it doesn't exist. You can disable for client-only apps or manual folder management                                                                                          |
+| enableLogs         | Boolean | true             | Enable terminal logs from the module during development. Disable if you like silence.                                                                                                                                 |
 | defaults           | Object  | {}               | Set default prop values for every `<Lottie>` instance project-wide. Use the component’s **camelCase** prop keys (e.g. `pauseAnimation`, `pauseOnHover`, `rendererSettings`). Per-instance props always take priority. |
 
 ### Component Defaults
@@ -190,10 +190,9 @@ export default defineNuxtConfig({
     defaults: {
       loop: false,
       autoplay: false,
-      renderer: 'canvas',
     },
   },
-})
+});
 ```
 
 ```vue
@@ -204,29 +203,29 @@ export default defineNuxtConfig({
 <Lottie name="confetti" :loop="3" />
 ```
 
-## `<Lottie>` Props: 
+## `<Lottie>` Props:
 
-| Prop             | Type              | Default Value | Description                                                                                                        |
-| ---------------- | ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ |
-| name             | String   | null        |  The name of the animation file without the `.json` extension. Supports nested paths (e.g., `"folder/animation"`).            |
-| data             | Object            | {}            | The lottie animation data provided as a JSON object                                                                |
-| link             | String            | ''            | A URL link to the Lottie animation data (eg: `Lottie Animation URL` on lottiefiles.com)                            |
-| width            | Number or String  | "100%"        | Width of the lottie animation container (Numbers correspond to pixel values)                                       |
-| height           | Number or String  | "100%"        | Height of the lottie animation container (Numbers correspond to pixel values)                                      |
-| speed            | Number            | "1"           | Speed of the lottie animation                                                                                      |
-| direction        | String            | "forward"     | Animation play direction                                                                                           |
-| loop             | Number or Boolean | true          | The number of instances that the lottie animation should run (true is infinite)                                    |
-| autoplay        | Boolean           | true          | Start animation on component load                                                                                  |
-| delay            | Number            | 0             | Delay the animation play state by some milliseconds                                                                |
-| pause-animation  | Boolean           | false         | Prop to pass reactive variables so that you can control animation pause and play                                   |
-| pause-on-hover   | Boolean           | false         | Whether to pause the animation on hover                                                                            |
-| play-on-hover    | Boolean           | false         | Whether to play the animation when you hover                                                                       |
-| background-color | String            | transparent   | Background color of the container                                                                                  |
-| no-margin        | Boolean           | false         | Prevent the lottie from auto centering in the container. This gives you better control on placement within your UI |
-| scale            | Number            | 1             | Scale the animation (might cause blurriness)                                                                       |
-| assets-path      | String            | ""            | URL to the image asset you need to use in your Lottie animation                                                    |
-| renderer         | String            | "svg"         | Set the renderer                                                                                                   |
-| renderer-settings| Object            | {}            | Options for if you want to use an existing canvas to draw (can be ignored on most cases)                           |
+| Prop              | Type              | Default Value | Description                                                                                                        |
+| ----------------- | ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ |
+| name              | String            | null          | The name of the animation file without the `.json` extension. Supports nested paths (e.g., `"folder/animation"`).  |
+| data              | Object            | {}            | The lottie animation data provided as a JSON object                                                                |
+| link              | String            | ''            | A URL link to the Lottie animation data (eg: `Lottie Animation URL` on lottiefiles.com)                            |
+| width             | Number or String  | "100%"        | Width of the lottie animation container (Numbers correspond to pixel values)                                       |
+| height            | Number or String  | "100%"        | Height of the lottie animation container (Numbers correspond to pixel values)                                      |
+| speed             | Number            | "1"           | Speed of the lottie animation                                                                                      |
+| direction         | String            | "forward"     | Animation play direction                                                                                           |
+| loop              | Number or Boolean | true          | The number of instances that the lottie animation should run (true is infinite)                                    |
+| autoplay          | Boolean           | true          | Start animation on component load                                                                                  |
+| delay             | Number            | 0             | Delay the animation play state by some milliseconds                                                                |
+| pause-animation   | Boolean           | false         | Prop to pass reactive variables so that you can control animation pause and play                                   |
+| pause-on-hover    | Boolean           | false         | Whether to pause the animation on hover                                                                            |
+| play-on-hover     | Boolean           | false         | Whether to play the animation when you hover                                                                       |
+| background-color  | String            | transparent   | Background color of the container                                                                                  |
+| no-margin         | Boolean           | false         | Prevent the lottie from auto centering in the container. This gives you better control on placement within your UI |
+| scale             | Number            | 1             | Scale the animation (might cause blurriness)                                                                       |
+| assets-path       | String            | ""            | URL to the image asset you need to use in your Lottie animation                                                    |
+| renderer          | String            | "svg"         | Set the renderer                                                                                                   |
+| renderer-settings | Object            | {}            | Options for if you want to use an existing canvas to draw (can be ignored on most cases)                           |
 
 ## Events
 
@@ -245,7 +244,7 @@ A few events are emitted from the component.
 
 ## Methods
 
-You can control the animation with the following methods. These methods can be called by assigning a `ref` value to the `<Lottie>` component. 
+You can control the animation with the following methods. These methods can be called by assigning a `ref` value to the `<Lottie>` component.
 
 - play
   - Plays the animation
@@ -271,7 +270,6 @@ You can control the animation with the following methods. These methods can be c
   - You can call this method to set the subframe value.
 - updateDocumentData(documentData, index)
   - This method updates text on text layers.
-  
 
 ## Development
 
@@ -299,15 +297,13 @@ npm run dev:docs
 ---
 
 <!-- Badges -->
+
 [npm-version-src]: https://img.shields.io/npm/v/nuxt-lottie/latest.svg?style=flat&colorA=020420&colorB=00DC82
 [npm-version-href]: https://npmjs.com/package/nuxt-lottie
-
 [npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-lottie.svg?style=flat&colorA=020420&colorB=00DC82
 [npm-downloads-href]: https://npmjs.com/package/nuxt-lottie
-
 [license-src]: https://img.shields.io/npm/l/nuxt-lottie.svg?style=flat&colorA=020420&colorB=00DC82
 [license-href]: https://npmjs.com/package/nuxt-lottie
-
 [nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js
 [nuxt-href]: https://nuxt.com
 
